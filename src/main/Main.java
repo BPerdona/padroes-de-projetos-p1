@@ -4,31 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import strategy.*;
+import nullObject.*;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		//Utilizando o padrão Strategy:
-		System.out.println("___Padrão Strategy___");
+		//Utilizando o padrÃ£o Strategy:
+		System.out.println("___PadrÃ£o Strategy___");
 		
 		Estudante bruno = new Estudante("Bruno", 6278);
 		Computador maquina1 = new Computador(1, true);
 		
-		//Pode ser utilizado para armazenar em uma lista todas as sessões ou até mesmo servir como Log
+		//Pode ser utilizado para armazenar em uma lista todas as sessï¿½es ou atï¿½ mesmo servir como Log
 		SessaoComputador sessao = new SessaoComputador(bruno, maquina1, 2);
 		
 		List<Integer> horas = new ArrayList<Integer>();
 		List<Integer> dias = new ArrayList<Integer>();
 		
-		//Apartir da sessão é possivel retirar o tempo de utilização ou somar aos dias utilizados
+		//Apartir da sessÃ£o Ã© possivel retirar o tempo de utilizaÃ§Ã£o ou somar aos dias utilizados
 		horas.add(sessao.getTempoUtil());
 		horas.add(5);
 		horas.add(1);
 		horas.add(3);
 		horas.add(2);
 		
-		//Cada add é um mês
+		//Cada add Ã© um mÃªs
 		dias.add(12);
 		dias.add(3);
 		dias.add(6);
@@ -39,7 +40,23 @@ public class Main {
 		System.out.println("Plano por hora: "+ planoHora.calcularPrecoFinal());
 		System.out.println("Plano por hora: "+ planoDia.calcularPrecoFinal());
 		
+		//Utilizando o padrÃ£o Null Object
+		System.out.println("\n___PadrÃ£o Strategy___");
 		
+		//Buscando e armazenando resultado das revistas
+		
+		AbstractMagazine revista1 = MagazineDAO.getCustomer("outside");
+		AbstractMagazine revista2 = MagazineDAO.getCustomer("Universo em uma casca de noz");
+		AbstractMagazine revista3 = MagazineDAO.getCustomer("cell");
+		AbstractMagazine revista4 = MagazineDAO.getCustomer("A teoria de tudo");
+		AbstractMagazine revista5 = MagazineDAO.getCustomer("Ciencia Hoje");
+		
+		System.out.println("Revistas: ");
+		System.out.println("\nTitle: "+revista1.getTitle()+"\nPaginas: "+revista1.getPages());
+		System.out.println("\nTitle: "+revista2.getTitle()+"\nPaginas: "+revista2.getPages());
+		System.out.println("\nTitle: "+revista3.getTitle()+"\nPaginas: "+revista3.getPages());
+		System.out.println("\nTitle: "+revista4.getTitle()+"\nPaginas: "+revista4.getPages());
+		System.out.println("\nTitle: "+revista5.getTitle()+"\nPaginas: "+revista5.getPages());
 	}
 
 }
