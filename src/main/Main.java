@@ -5,6 +5,7 @@ import java.util.List;
 
 import strategy.*;
 import nullObject.*;
+import hookMethod.*;
 
 public class Main {
 
@@ -44,7 +45,6 @@ public class Main {
 		System.out.println("\n___Padrão Strategy___");
 		
 		//Buscando e armazenando resultado das revistas
-		
 		AbstractMagazine revista1 = MagazineDAO.getCustomer("outside");
 		AbstractMagazine revista2 = MagazineDAO.getCustomer("Universo em uma casca de noz");
 		AbstractMagazine revista3 = MagazineDAO.getCustomer("cell");
@@ -57,6 +57,20 @@ public class Main {
 		System.out.println("\nTitle: "+revista3.getTitle()+"\nPaginas: "+revista3.getPages());
 		System.out.println("\nTitle: "+revista4.getTitle()+"\nPaginas: "+revista4.getPages());
 		System.out.println("\nTitle: "+revista5.getTitle()+"\nPaginas: "+revista5.getPages());
+
+		//Utilizando o padrão Hook Method
+		System.out.println("\n___Hook Method___");
+
+		//Livros Cientificos tem 80% de seu preço normal
+		Livro geoGeral = new LivroCientifico("Geografia geral do Brasil", 471, 50.0, "Scipione", "Geografia");
+
+		//Livros de Literatura tem 25% de desconto
+		Livro domCasmurro = new LivroLiteratura("Dom Casmurro", 187, 12.25, "Machado de Assis", "Romance");
+
+		//Calculo dos resultados
+		System.out.println("Preço do Livro "+geoGeral.getTitulo()+ " com desconto é: "+geoGeral.calcularPreçoExtendido(4));
+		System.out.println("Preço do Livro "+domCasmurro.getTitulo()+ " com desconto é: "+domCasmurro.calcularPreçoExtendido(2));
+
 	}
 
 }
