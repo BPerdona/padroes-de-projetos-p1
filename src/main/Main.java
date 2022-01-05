@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import chainOfResponsibility.*;
 import strategy.*;
 import nullObject.*;
 import hookMethod.*;
@@ -166,5 +167,23 @@ public class Main {
 		//Composta
 		System.out.println("\nComposta:\n"+compostaB);
 		System.out.println("Preço: "+ compostaB.getPreco());
+
+		//Utilizando o Padrao Chain of Responsivility
+		System.out.println("\n___Padrão Chain of Responsibility___");
+
+		//Realizando uma pesquisa de um livro
+		try{
+			//Quando o livro é encontrado
+			RecuperadorLivro todoAcervo = new EstanteLivros(new FilialLivros(new AcervoVirtual(null)));
+			LivroPesquisa livroProcurado = todoAcervo.recuperar("Frankenstein");
+			System.out.println("O livro"+livroProcurado.getTitulo()+" foi encontrado em: "+livroProcurado.getOrigem());
+			System.out.println("\nEspecificações: "+"\nTitulo: "+livroProcurado.getTitulo()+"\nAutor: "+livroProcurado.getAutor()+"\nPaginas: "+livroProcurado.getNumPags()+"\nPreço: "+livroProcurado.getPrecoEmprestimo()+"\n");
+
+			//Quando o livro não é encontrado
+			LivroPesquisa livroProcurado2 = todoAcervo.recuperar("Balela");
+			System.out.println("O livro "+livroProcurado2.getTitulo()+" foi encontrado em: "+livroProcurado2.getOrigem());
+		}catch (RuntimeException ex){
+			System.err.println(ex.getMessage());
+		}
 	}
 }
