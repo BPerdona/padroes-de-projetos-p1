@@ -6,6 +6,8 @@ import java.util.List;
 import strategy.*;
 import nullObject.*;
 import hookMethod.*;
+import state.*;
+import observerPattern.*;
 
 public class Main {
 
@@ -71,6 +73,48 @@ public class Main {
 		System.out.println("Preço do Livro "+geoGeral.getTitulo()+ " com desconto é: "+geoGeral.calcularPreçoExtendido(4));
 		System.out.println("Preço do Livro "+domCasmurro.getTitulo()+ " com desconto é: "+domCasmurro.calcularPreçoExtendido(2));
 
-	}
+		//Utilizando o padrão State Pattern
+		System.out.println("\n___State Pattern___");
 
+		//Criando livro com seus atributos
+		LivroAcervo livroAcervo = new LivroAcervo("Sherlock Holmes", "Investigação", 476, 1.25);
+
+		//Alterando o estado de cada objeto e imprimindo
+		livroAcervo.disponivel();
+		livroAcervo.state();
+		livroAcervo.emprestado();
+		livroAcervo.state();
+		livroAcervo.perdido();
+		livroAcervo.state();
+		livroAcervo.perdido();
+
+		//Utilizando o padrão Observer Pattern
+		System.out.println("\n___Observer Pattern___");
+
+		//Nesse padrao vou usar os computadores como observadores e o computador do Admin como o Observavel
+		//Assim o Admin poderá mandar mensagem para todos os computadores ou para os específicos
+
+		//Computadores como 'Device' que serão os Observadores
+		Computador comp1 = new Computador(1, true);
+		Computador comp2 = new Computador(2, true);
+		Computador comp3 = new Computador(4, true);
+		Computador comp4 = new Computador(7, true);
+
+		//Novo 'Serviço' que será o observado
+		ComputadorAdmin compAdm = new ComputadorAdmin("Júlio");
+
+		//Adicionando Observadores
+		compAdm.addObserver(comp1);
+		compAdm.addObserver(comp2);
+		compAdm.addObserver(comp3);
+		compAdm.addObserver(comp4);
+
+		//Enviando mensagem para todos e uma exclusiva para a maquina 7
+		compAdm.notifyAll("Em 10 minutos estaremos fechando a biblioteca!");
+		compAdm.notify(7,"Seu limite de tempo acaba em 10 minutos!!!");
+
+		//Tirando observador
+		compAdm.removeObserver(comp4);
+		compAdm.notify(7,"Essa mensagem não irá aparecer!");
+	}
 }

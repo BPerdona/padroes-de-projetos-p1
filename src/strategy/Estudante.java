@@ -24,6 +24,5 @@ public class Estudante {
 	public void setIdCadastro(int idCadastro) {
 		this.idCadastro = idCadastro;
 	}
-	
-	
+
 }

@@ -1,6 +1,6 @@
 package hookMethod;
 
-public class LivroCientifico extends Livro{
+public class LivroCientifico extends Livro {
     private String editora;
     private String materia;
 
