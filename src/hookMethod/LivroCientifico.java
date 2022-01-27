@@ -10,7 +10,7 @@ public class LivroCientifico extends Livro {
         this.materia = materia;
     }
 
-    protected  Double calcularPreçoEmprestimo(){
+    protected  Double calcularPrecoEmprestimo(){
         return this.getPrecoEmprestimo() * 0.20;
     }
 

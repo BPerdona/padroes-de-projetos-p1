@@ -13,7 +13,7 @@ public class LivroAcervo extends Livro {
     }
 
     @Override
-    protected Double calcularPreçoEmprestimo() {
+    protected Double calcularPrecoEmprestimo() {
         return this.getPrecoEmprestimo() * 0.20;
     }
 

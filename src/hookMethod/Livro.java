@@ -11,11 +11,11 @@ public abstract class Livro {
         this.precoEmprestimo = precoEmprestimo;
     }
 
-    public Double calcularPreçoExtendido(int semanas){
-        return calcularPreçoEmprestimo()*semanas;
+    public Double calcularPrecoExtendido(int semanas){
+        return calcularPrecoEmprestimo()*semanas;
     }
 
-    protected abstract Double calcularPreçoEmprestimo();
+    protected abstract Double calcularPrecoEmprestimo();
 
     public String getTitulo() {
         return titulo;

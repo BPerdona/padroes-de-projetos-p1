@@ -10,7 +10,7 @@ public class LivroLiteratura extends Livro {
         this.genero = genero;
     }
 
-    protected  Double calcularPreçoEmprestimo(){
+    protected  Double calcularPrecoEmprestimo(){
         return this.getPrecoEmprestimo() * 0.75;
     }
 

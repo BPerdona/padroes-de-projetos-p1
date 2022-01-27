@@ -43,10 +43,10 @@ public class Main {
 		ResultadoUtilComputador planoDia = new ResultadoUtilComputador(bruno, dias, 3, new PlanoDia());
 		
 		System.out.println("Plano por hora: "+ planoHora.calcularPrecoFinal());
-		System.out.println("Plano por hora: "+ planoDia.calcularPrecoFinal());
+		System.out.println("Plano por dia: "+ planoDia.calcularPrecoFinal());
 		
 		//Utilizando o padrão Null Object
-		System.out.println("\n___Padrão Strategy___");
+		System.out.println("\n___Padrão Null Object___");
 		
 		//Buscando e armazenando resultado das revistas
 		AbstractMagazine revista1 = MagazineDAO.getCustomer("outside");
@@ -72,8 +72,8 @@ public class Main {
 		Livro domCasmurro = new LivroLiteratura("Dom Casmurro", 187, 12.25, "Machado de Assis", "Romance");
 
 		//Calculo dos resultados
-		System.out.println("Preço do Livro "+geoGeral.getTitulo()+ " com desconto é: "+geoGeral.calcularPreçoExtendido(4));
-		System.out.println("Preço do Livro "+domCasmurro.getTitulo()+ " com desconto é: "+domCasmurro.calcularPreçoExtendido(2));
+		System.out.println("Preço do Livro "+geoGeral.getTitulo()+ " com desconto é: "+geoGeral.calcularPrecoExtendido(4));
+		System.out.println("Preço do Livro "+domCasmurro.getTitulo()+ " com desconto é: "+domCasmurro.calcularPrecoExtendido(2));
 
 		//Utilizando o padrão State Pattern
 		System.out.println("\n___State Pattern___");
